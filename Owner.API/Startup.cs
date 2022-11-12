@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Owner.API.Middlewares;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,11 @@ namespace Owner.API
 
             app.UseHttpsRedirection();
 
+            
+
             app.UseRouting();
+
+            app.UseMiddleware<ExcepitonMiddleware>();
 
             app.UseAuthorization();
 
